@@ -1,6 +1,10 @@
 package nuclear_gun.nuclear_gun.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -20,6 +24,9 @@ public class Weapon {
     @ManyToOne
     @JoinColumn(name ="types_id")
     private Types types;
+
+    @ManyToMany(mappedBy = "weapons", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    private Set<Warehouse> wp = new HashSet<>();
 
     public Weapon(String name, Integer efficiency, Manufacturer manufacturer, Types types) {
         this.name = name;
@@ -69,5 +76,12 @@ public class Weapon {
 
     public void setTypes(Types types) {
         this.types = types;
+    }
+    public Set<Warehouse> getWarehouse() {
+        return wp;
+    }
+
+    public void setWarehouse(Set<Warehouse> weapon) {
+        this.wp = weapon;
     }
 }

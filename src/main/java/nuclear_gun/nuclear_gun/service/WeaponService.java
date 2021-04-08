@@ -31,6 +31,10 @@ public class WeaponService {
         return repository.findById(id).orElse(null);
     }
 
+    public Weapon getOneById(Long id) {
+        return repository.getOne(id);
+    }
+
     public Weapon create(Weapon weapon) {
         return repository.save(weapon);
     }

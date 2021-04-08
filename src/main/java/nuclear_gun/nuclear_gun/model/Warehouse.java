@@ -1,5 +1,7 @@
 package nuclear_gun.nuclear_gun.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,20 +17,21 @@ public class Warehouse {
     private double longitude;
     private int quantity;
 
-    @ManyToMany
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinTable(
             name = "stock",
             joinColumns = @JoinColumn(name = "warehouse_id"),
             inverseJoinColumns = @JoinColumn(name = "weapon_id"))
-    private Set<Weapon> setWeapon = new HashSet<>();;
 
-    public Warehouse(Long id, String country, double latitude, double longitude, int quantity, Set<Weapon> setWeapon) {
+    private Set<Weapon> weapons = new HashSet<>();
+
+    public Warehouse(Long id, String country, double latitude, double longitude, int quantity) {
         this.id = id;
         this.country = country;
         this.latitude = latitude;
         this.longitude = longitude;
         this.quantity = quantity;
-        this.setWeapon = setWeapon;
     }
 
     public Warehouse() {
@@ -75,11 +78,11 @@ public class Warehouse {
         this.quantity = quantity;
     }
 
-    public Set<Weapon> getSetWeapon() {
-        return setWeapon;
+    public Set<Weapon> getWeapon() {
+        return weapons;
     }
 
-    public void setSetWeapon(Set<Weapon> weapon) {
-        this.setWeapon = weapon;
+    public void setWeapon(Set<Weapon> weapon) {
+        this.weapons = weapon;
     }
 }
