@@ -78,11 +78,11 @@ public class Weapon {
     public void setTypes(Types types) {
         this.types = types;
     }
-    @JsonIgnore
+
     public Set<Warehouse> getWarehouse() {
         return wp;
     }
-
+    @JsonIgnore
     public void setWarehouse(Set<Warehouse> weapon) {
         this.wp = weapon;
     }

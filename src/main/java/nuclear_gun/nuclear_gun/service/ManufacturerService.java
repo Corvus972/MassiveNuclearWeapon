@@ -29,7 +29,7 @@ public class ManufacturerService {
     }
 
     public List<Manufacturer> findByCountry(String country) {
-        return repository.findByCountry(country);
+        return repository.searchByCountry(country);
     }
 
     public Manufacturer getOneById(Long id) {
