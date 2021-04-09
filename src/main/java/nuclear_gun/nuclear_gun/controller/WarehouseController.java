@@ -24,8 +24,9 @@ public class WarehouseController {
     }
 
     @PostMapping("/create")
-    public Warehouse createWeapon(@RequestBody Warehouse warehouse){
-        return service.create(warehouse);
+    public ResponseEntity<Void> createWeapon(@RequestBody Warehouse warehouse){
+        service.create(warehouse);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("delete/{id}")

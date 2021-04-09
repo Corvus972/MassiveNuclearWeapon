@@ -1,7 +1,5 @@
 package nuclear_gun.nuclear_gun.service;
 
-import nuclear_gun.nuclear_gun.model.Manufacturer;
-import nuclear_gun.nuclear_gun.model.Types;
 import nuclear_gun.nuclear_gun.model.Weapon;
 import nuclear_gun.nuclear_gun.repository.ManufacturerRepository;
 import nuclear_gun.nuclear_gun.repository.TypesRepository;
@@ -9,7 +7,6 @@ import nuclear_gun.nuclear_gun.repository.WeaponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
