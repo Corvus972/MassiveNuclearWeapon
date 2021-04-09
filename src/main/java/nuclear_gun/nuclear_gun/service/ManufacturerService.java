@@ -28,6 +28,10 @@ public class ManufacturerService {
         return repository.findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Manufacturer not found"));
     }
 
+    public List<Manufacturer> findByCountry(String country) {
+        return repository.findByCountry(country);
+    }
+
     public Manufacturer getOneById(Long id) {
         return repository.getOne(id);
     }

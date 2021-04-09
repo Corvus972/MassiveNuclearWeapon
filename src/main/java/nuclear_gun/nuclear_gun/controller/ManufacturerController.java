@@ -27,6 +27,12 @@ public class ManufacturerController {
         return service.findById(id);
     }
 
+    @GetMapping("/by_country/{country}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public List<Manufacturer> findById(@PathVariable("country") String country) {
+        return service.findByCountry(country);
+    }
+
     @PostMapping("/manufacturer")
     @ResponseStatus(code = HttpStatus.OK)
     public Manufacturer createWeapon(@RequestBody Manufacturer manufacturer){

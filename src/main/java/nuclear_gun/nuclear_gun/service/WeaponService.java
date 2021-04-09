@@ -30,6 +30,9 @@ public class WeaponService {
     public Weapon findById(Long id) {
         return repository.findById(id).orElse(null);
     }
+    public List<Weapon> findByEfficiencyGreaterThan(Integer efficiency) {
+        return repository.findByEfficiencyGreaterThan(efficiency);
+    }
 
     public Weapon getOneById(Long id) {
         return repository.getOne(id);

@@ -20,9 +20,14 @@ public class WeaponController {
         return service.findAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Weapon findById(@PathVariable("id") Long id) {
         return service.findById(id);
+    }
+
+    @GetMapping("/gt/{efficiency}")
+    public List<Weapon> greaterThan(@PathVariable("efficiency") Integer efficiency) {
+        return service.findByEfficiencyGreaterThan(efficiency);
     }
 
     @PostMapping("/create")
@@ -31,7 +36,7 @@ public class WeaponController {
     }
 
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteById(@PathVariable("id") Long id) {
         boolean deleteWeapon = service.delete(id);
         if(deleteWeapon){
