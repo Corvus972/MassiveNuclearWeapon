@@ -30,18 +30,8 @@ public class WarehouseService {
         return repository.findById(id).orElse(null);
     }
 
-    public Warehouse create(Warehouse warehouse) {
-        warehouse.getWeapon()
-                .addAll(warehouse
-                        .getWeapon()
-                        .stream()
-                        .map(s -> {
-                            Weapon weapon = weaponService.getOneById(s.getId());
-                            weapon.getWarehouse().add(warehouse);
-                            return weapon;
-                        }).collect(Collectors.toList()));
-
-        return repository.save(warehouse);
+    public void create(Warehouse warehouse) {
+        repository.save(warehouse);
     }
 
     public boolean delete(Long id) {

@@ -1,5 +1,7 @@
 package nuclear_gun.nuclear_gun.model;
 
+
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -14,11 +16,12 @@ public class Warehouse {
     private Long id;
     private String country;
     private double latitude;
+
     private double longitude;
     private int quantity;
 
-    @JsonIgnore
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(
             name = "stock",
             joinColumns = @JoinColumn(name = "warehouse_id"),
