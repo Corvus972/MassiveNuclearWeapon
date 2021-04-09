@@ -1,6 +1,4 @@
 package nuclear_gun.nuclear_gun.repository;
-import nuclear_gun.nuclear_gun.model.DeliveryType;
-import nuclear_gun.nuclear_gun.model.Manufacturer;
 import nuclear_gun.nuclear_gun.model.Weapon;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
