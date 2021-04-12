@@ -8,9 +8,4 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface TypesRepository extends JpaRepository<Types, Long> {
-
-//    @Query("select m from Weapon w join w.manufacturer m join w.warehouse ww where ww.country = :countryParam")
-    @Query("from Weapon")
-    public List<Types> findByDeliveryType(@Param("deliveryParam") String delivery);
-}
+public interface TypesRepository extends JpaRepository<Types, Long> { }

@@ -22,10 +22,6 @@ public class TypeService {
         return repository.findById(id).orElse(null);
     }
 
-    public List<Types> findByDeliveryType(String name) {
-        return repository.findByDeliveryType(name);
-    }
-
     public Types create(Types type) {
         return repository.save(type);
     }

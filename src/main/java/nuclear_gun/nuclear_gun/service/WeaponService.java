@@ -1,5 +1,6 @@
 package nuclear_gun.nuclear_gun.service;
 
+import nuclear_gun.nuclear_gun.model.Types;
 import nuclear_gun.nuclear_gun.model.Weapon;
 import nuclear_gun.nuclear_gun.repository.ManufacturerRepository;
 import nuclear_gun.nuclear_gun.repository.TypesRepository;
@@ -22,6 +23,10 @@ public class WeaponService {
 
     public List<Weapon> findAll() {
         return repository.findAll();
+    }
+
+    public List<Weapon> findByDeliveryType(String name) {
+        return repository.findByDeliveryType(name);
     }
 
     public Weapon findById(Long id) {

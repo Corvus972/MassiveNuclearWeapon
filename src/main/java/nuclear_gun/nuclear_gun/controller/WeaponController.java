@@ -1,5 +1,6 @@
 package nuclear_gun.nuclear_gun.controller;
 
+import nuclear_gun.nuclear_gun.model.Types;
 import nuclear_gun.nuclear_gun.model.Weapon;
 import nuclear_gun.nuclear_gun.service.WeaponService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,12 @@ public class WeaponController {
     @GetMapping("/{id}")
     public Weapon findById(@PathVariable("id") Long id) {
         return service.findById(id);
+    }
+
+    @GetMapping("/delivery_type/{name}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public List<Weapon> getByDeliveryType(@PathVariable("name") String name) {
+        return service.findByDeliveryType(name);
     }
 
     @GetMapping("/gt/{efficiency}")

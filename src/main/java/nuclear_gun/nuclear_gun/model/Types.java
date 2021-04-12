@@ -11,15 +11,13 @@ public class Types {
     private Long id;
     private String label;
 
+    public Types() { }
     public Types(String label) {
         this.label = label;
     }
 
     public Long getId() {
         return id;
-    }
-    public Types() {
-
     }
     public void setId(Long id) {
         this.id = id;

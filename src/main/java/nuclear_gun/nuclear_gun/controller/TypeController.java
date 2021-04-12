@@ -26,12 +26,6 @@ public class TypeController {
         return service.create(types);
     }
 
-    @GetMapping("/delivery_type/{name}")
-    @ResponseStatus(code = HttpStatus.OK)
-    public List<Types> updateCitation(@PathVariable("name") String name) {
-        return service.findByDeliveryType(name);
-    }
-
     @PutMapping("/update/{id}")
     public ResponseEntity<Types> updateCitation(@PathVariable("id") Long id, @RequestBody Types types) {
         return new ResponseEntity<>(service.edit(id, types), HttpStatus.OK);

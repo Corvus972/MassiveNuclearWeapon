@@ -11,7 +11,7 @@ import java.util.List;
 public interface ManufacturerRepository extends JpaRepository<Manufacturer, Long> {
 
 
-    @Query("select m from Weapon w join w.manufacturer m " + "join w.wp ww where ww.country = :countryParam")
+    @Query("select m from Weapon w join w.manufacturer m join w.wp ww where ww.country = :countryParam")
     List<Manufacturer> searchByCountry(@Param("countryParam") String country);
 
 }
